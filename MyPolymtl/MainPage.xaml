@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="MyPolymtl.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyPolymtl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:DayToIntConverter x:Key="dayIntConv"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox Name="lbSchedule" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                    </Grid>-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Grid.Row" Value="0"/>
+                    <!--<Setter Property="Grid.Column" Value="{Binding RelativeSource={RelativeSource  Mode=TemplatedParent}, Converter={StaticResource dayIntConv}}"/>-->
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate >
+                                <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                    <ContentPresenter/>
+                                </Button>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+    </Grid>
+</Page>
